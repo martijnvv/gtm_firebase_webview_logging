@@ -1,0 +1,5 @@
+homepage: "https://www.martijnvanvreeden.nl"
+documentation: "https://github.com/martijnvv/gtm_firebase_webview_logging"
+versions:
+  - sha: --
+    changeNotes: Initial release.
