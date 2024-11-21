@@ -1,6 +1,6 @@
 # Firebase webview logging GTM template
 
-This Google Tag Manager template allows you to easily configure the parameters to want to send to Firebase through the logEvent function.
+This Google Tag Manager template allows you to easily configure the parameters to want you send to Firebase through the logEvent function.
 The template allows you to include event data as well as user properties.
 
 In order for this template to work, there are several steps to take:
@@ -21,13 +21,13 @@ You need to update the Firebase SDK (or let you app developers do this) by follo
 
 In your GTM client side container, add the Javascript Handles in a Custom HTML tag. The javascript function you create is called logEvent. The custom HTML tag should be populated with the code outlined in the [official Firebase documentation](https://firebase.google.com/docs/analytics/webview?platform=android#implement-javascript-handler) in the section called "Implement JavaScript handler". I generally trigger this javascript handler on initialization of the page, but only when the app version of a page is loaded. The last part basically excluded the tag from loading on the regular webiste version of the page, if this is applicable.
 
-## 4. Trigger events from GTM with the new logEvent custom GTM template you find here
+## 4. Trigger web_view events from GTM
 
-1. First download the  the template.tpl file and import it in your GTM container by navigating to GTM -> Templates - Tag Templates - New -> Import (right top corner) and save the template
+1. First download the template.tpl file in this Github project and import it into your GTM container by navigating to GTM -> Templates - Tag Templates - New -> Import (right top corner) and save the template
 2. Create a new tag and select the template "Firebase Analytics - Log webview events"
 3. Now it's time to populate the template
 
-### Configure the template
+### Standard Events
 
 1. The Event name will reflect the name of the event you want to use in Firebase Analytics / GA4 (apps).
 
@@ -47,12 +47,24 @@ Follow the same process as the event parameters
 
 5. In the section "Developer settings", tick the box "Enable Console Logs" in case you want to see responses in the GTM debugger
 
-### E-commerce tracking
+### E-commerce Events
 
 E-commerce events work similar to standard events, with a few exceptions:
 
-* Select E-commerce as type of events to track
-* Tick the boxes of events you wish to track from the "Ecommerce Events" list
-* By ticking these boxes, the items array is automatically included to the events. When selecting select_promotion and/ or view_promotion, the items array (if used for promotion data) is automatically flattened and used to trigger events for promotions. This also means that if you have multiple items in your view_promotion items array, an event is triggered for each item
-* In addition to the items array, include additional event parameters you wish to send to the app. This also includes variables like transaction_id, value, etc. None of the standard variables are automatically included
-* Just like standard events, you also have the option to include user properties to e-commerce events
+1. The event name you create should be the recommended event name for GA4 e-commerce events.
+
+See ["For online sales"](https://support.google.com/analytics/answer/9267735?hl=en) section in the official GA4 documentation for more details.
+
+3. Select E-commerce as type of events to track
+4. Tick the boxes of events you wish to track from the "Ecommerce Events" list
+5. By ticking these boxes, the items array is automatically included to the events.
+
+When selecting select_promotion and/ or view_promotion, the items array (if used for promotion data) is automatically flattened and used to trigger events for promotions. This also means that if you have multiple items in your view_promotion items array, an event is triggered for each item
+
+7. In addition to the items array, include additional event parameters you wish to send to the app. 
+
+This also includes variables like transaction_id, value, etc. None of the standard variables are automatically included
+
+8. Tick the box "Add User Properties" if you have any user properties to include in the event
+
+Follow the same process as the event parameters
