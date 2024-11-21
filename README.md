@@ -55,3 +55,4 @@ E-commerce events work similar to standard events, with a few exceptions:
 * Tick the boxes of events you wish to track from the "Ecommerce Events" list
 * By ticking these boxes, the items array is automatically included to the events. When selecting select_promotion and/ or view_promotion, the items array (if used for promotion data) is automatically flattened and used to trigger events for promotions. This also means that if you have multiple items in your view_promotion items array, an event is triggered for each item
 * In addition to the items array, include additional event parameters you wish to send to the app. This also includes variables like transaction_id, value, etc. None of the standard variables are automatically included
+* Just like standard events, you also have the option to include user properties to e-commerce events
